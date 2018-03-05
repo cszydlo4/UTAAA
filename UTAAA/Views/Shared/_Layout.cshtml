@@ -1,9 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Mobile Specific Metas
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600|Open+Sans+Condensed:700|Open+Sans:800" rel="stylesheet" type="text/css" />
+
+
+
+    <title>@ViewBag.Title - Access Approval</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -28,9 +38,20 @@
             </div>
         </div>*@
 
-    <div id="banner">
-        <img src="../../Content/Images/myUT_logo.png" alt="MyUT">
-    </div>
+    <header>
+        <div id="header">
+            <div class="container">
+                <div id="ut_logo">
+                    <img src="~/Content/Images/ut_logo.png" alt="The University of Toledo" id="logo" /><img src="~/Content/Images/ut_shield.png" alt="UT" width="40" height="46" id="shield" />
+                    <strong>Systems Access Requests</strong>
+                </div>
+                <!-- end ut_logo -->
+
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+
 
     <div id="welcome">
         <h1>Welcome to the Systems Access Request Portal</h1>
@@ -48,34 +69,88 @@
 
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'PastRequests')">Past Requests</button>
+        <button class="tablinks" onclick="openTab(event, 'PastRequests')" id="defaultOpen">Past Requests</button>
         <button class="tablinks" onclick="openTab(event, 'CurrentRequests')">Current Requests</button>
         <button class="tablinks" onclick="openTab(event, 'NewRequests')">New Requests</button>
+        <button class="tablinks" onclick="openTab(event, 'PastApprovals')">Past Approvals</button>
+        <button class="tablinks" onclick="openTab(event, 'CurrentApprovals')">Current Approvals</button>
     </div>
 
     <!-- Tab content -->
     <div id="PastRequests" class="tabcontent">
+        <hr />
         @Html.Partial("../Partials/PastRequests")
     </div>
-    
+
     <div id="CurrentRequests" class="tabcontent">
+        <hr />
         @Html.Partial("../Partials/CurrentRequests")
     </div>
 
     <div id="NewRequests" class="tabcontent">
-        <@Html.Partial("../Partials/NewRequests")>
+        <hr />
+        @Html.Partial("../Partials/NewRequests")
+    </div>
+
+    <div id="PastApprovals" class="tabcontent">
+        <hr />
+        @Html.Partial("../Partials/PastApprovals")
+    </div>
+
+    <div id="CurrentApprovals" class="tabcontent">
+        <hr />
+        @Html.Partial("../Partials/CurrentApprovals")
     </div>
 
 
     @Scripts.Render("~/Scripts/tabs.js")
 
+    <script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+
 
 
     <div class="container body-content">
         @RenderBody()
-        @*<footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>*@
+
+        @*<!-- End content / Begin footer
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+                <div id="content_date">
+                    <div class="container"><span id="directedit"><a id="de" href="#">Last Updated: 2/16/16</a></span></div>
+                </div>
+                <!-- end content_date -->
+                <footer>
+                    <div id="footer">
+                        <div class="container">
+                            <div class="row">
+                                <div id="footer_logo" class="two columns"><img src="//intranet.utoledo.edu/common/images/ut_logo.png" alt="UT Logo" title="UT Logo"></div>
+                                <div id="footer_contact" class="ten columns">
+                                    <p>
+                                        The University of Toledo <br>
+                                        • 2801 W. Bancroft <br>
+                                        • Toledo, OH 43606-3390<br class="footer_contact_break">
+                                        © The University of Toledo. <br>
+                                        • All rights reserved. <br>
+                                        • 1.800.586.5336
+                                    </p>
+                                    <ul id="footer_links">
+                                        <li class="footer_links_item"><a class="footer_links_link" href="/campus/terms.html">Terms of Use</a></li>
+                                        <li class="footer_links_item"><a class="footer_links_link" href="/offices/marketing/web/accessibility.html">Accessibility</a></li>
+                                        <li class="footer_links_item"><a class="footer_links_link" href="mailto:webmaster@utoledo.edu">Feedback</a></li>
+                                        <li class="footer_links_item"><a class="footer_links_link" href="/campus/about/address.html">Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end footer -->*@
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
