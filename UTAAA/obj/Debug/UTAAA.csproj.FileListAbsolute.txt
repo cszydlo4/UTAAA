@@ -39,3 +39,45 @@ D:\Google Drive\UT\Classes\ Senior Technology Capstone\UTAAA\UTAAA\bin\Microsoft
 D:\Google Drive\UT\Classes\ Senior Technology Capstone\UTAAA\UTAAA\obj\Debug\UTAAA.csproj.CoreCompileInputs.cache
 D:\Google Drive\UT\Classes\ Senior Technology Capstone\UTAAA\UTAAA\obj\Debug\UTAAA.dll
 D:\Google Drive\UT\Classes\ Senior Technology Capstone\UTAAA\UTAAA\obj\Debug\UTAAA.pdb
+D:\GitHub\UTAAA\UTAAA\bin\ApplicationInsights.config
+D:\GitHub\UTAAA\UTAAA\bin\UTAAA.dll.config
+D:\GitHub\UTAAA\UTAAA\bin\UTAAA.dll
+D:\GitHub\UTAAA\UTAAA\bin\UTAAA.pdb
+D:\GitHub\UTAAA\UTAAA\bin\Antlr3.Runtime.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.Agent.Intercept.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.DependencyCollector.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.Web.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.WindowsServer.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.ApplicationInsights.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\UTAAA\UTAAA\bin\Newtonsoft.Json.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Helpers.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Mvc.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Optimization.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Razor.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.WebPages.Deployment.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.WebPages.dll
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.WebPages.Razor.dll
+D:\GitHub\UTAAA\UTAAA\bin\WebGrease.dll
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Helpers.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Mvc.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Optimization.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.Razor.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.WebPages.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.WebPages.Deployment.xml
+D:\GitHub\UTAAA\UTAAA\bin\System.Web.WebPages.Razor.xml
+D:\GitHub\UTAAA\UTAAA\bin\Antlr3.Runtime.pdb
+D:\GitHub\UTAAA\UTAAA\bin\Newtonsoft.Json.xml
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.ApplicationInsights.xml
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.DependencyCollector.xml
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.WindowsServer.xml
+D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.Web.xml
+D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.csprojResolveAssemblyReference.cache
+D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.csproj.CoreCompileInputs.cache
+D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.dll
+D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.pdb
