@@ -1770,7 +1770,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return siblingCheck( a, b );
 		}
 
-		// Otherwise we need full lists of their ancestors for comparison
+		// Otherwise we need full lists of their ancestors for comCurrentRequestson
 		cur = a;
 		while ( (cur = cur.parentNode) ) {
 			ap.unshift( cur );
@@ -2926,7 +2926,7 @@ function select( selector, context, results, seed ) {
 support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
 
 // Support: Chrome<14
-// Always assume duplicates if they aren't passed to the comparison function
+// Always assume duplicates if they aren't passed to the comCurrentRequestson function
 support.detectDuplicates = hasDuplicate;
 
 // Initialize against the default document
