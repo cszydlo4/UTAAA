@@ -21,13 +21,16 @@ namespace UTAAA
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/jquery-1.11.2.min.js",
+                      "~/Scripts/common.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
+                      "~/Content/Site.css",
                       "~/Content/tabs.css",
-                      "~/Content/font-awesome.css"));
+                      "~/Content/font-awesome.css",
+                      "~/Content/tabs.css",
+                      "~/Content/ut-styles.css"));
         }
     }
 }

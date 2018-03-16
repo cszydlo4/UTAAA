@@ -1,194 +1,10 @@
-﻿/* Header
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-#header {
-    background: #003e7e url(Images/header_bg.jpg) no-repeat top center;
-    border-top: 2px solid #ffd200;
-    border-bottom: 1px solid #00336c;
-    color: #FFF;
-    height: 57px;
-    overflow: hidden;
-}
-
-#ut_logo {
-    padding-top: 5px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: 2rem;
-}
-
-    #ut_logo img {
-        float: left;
-    }
-
-    #ut_logo strong {
-        padding: 5px 0 0 30px;
-        float: left;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    }
-
-#shield {
-    display: none;
-}
-
-#header_title {
-    clear: both;
-    background: #003e7e;
-    -webkit-box-shadow: inset 0 10px 4px -4px rgba(0,0,0,0.15);
-    -moz-box-shadow: inset 0 10px 4px -4px rgba(0,0,0,0.15);
-    box-shadow: inset 0 10px 4px -4px rgba(0,0,0,0.15);
-}
-
-    #header_title h2 {
-        color: #FFF;
-        padding: 21px 0;
-        margin-bottom: 0;
-        font-family: "Open Sans", sans-serif;
-        font-weight: 800;
-        font-size: 2.4em;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    }
-
-/* Footer
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-#footer {
-    clear: both;
-    background: #003e7e url(Images/footer_bg.gif) repeat-y top center;
-    display: block;
-    width: 100%;
-}
-
-    #footer .container {
-        background: url(Images/footer_top_bg.gif) no-repeat top center;
-        padding-top: 40px;
-        padding-bottom: 80px;
-    }
-
-#footer_logo img {
-    width: 100%;
-    height: auto;
-}
-
-#footer_contact {
-    color: #FFF;
-    font-size: 80%;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-}
-
-    #footer_contact br {
-        display: none;
-    }
-
-.footer_contact_break {
-    display: block !important;
-}
-
-#footer_links {
-    list-style: outside none none;
-}
-
-.footer_links_item {
-    float: left;
-}
-
-.footer_links_link {
-    color: #ffd200;
-    padding-right: 25px;
-    display: inline-block;
-}
-
-    .footer_links_link:hover {
-        color: #ffd200;
-    }
-
-#content_date {
-    clear: both;
-    background: #273340;
-    padding: 16px 0;
-    font-size: 80%;
-}
-
-    #content_date a {
-        color: #666;
-    }
-
-img {
-    border: 0;
-}
-
-.two.columns {
-    width: 13.3333333333%;
-}
-.ten.columns {
-    width: 82.6666666667%;
-}
-
-.container:after, .row:after, .u-cf {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Grid
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.container {
-    position: relative;
-    width: 100%;
-    /*max-width: 960px;
-  max-width: 1170px;*/
-    margin: 0 auto;
-    padding: 0 20px;
-    /*background: url(../images/grid-bg.gif) repeat-y top left;*/
-    box-sizing: border-box;
-}
-
-.column, .columns {
-    width: 100%;
-    float: left;
-    box-sizing: border-box;
-}
-
-/* End Grid
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-body {
-    padding-bottom: 20px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1920px;
-}
-
-/* Set padding to keep content from hitting the edges */
-    .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
+﻿
 #welcome {
-    width: 50%;
     display: block;
-    margin: auto;
+    margin: 0 auto;
     height: 2.5em;
     text-align: center;
-    color: #003596;
+    color: #003e7e;
 }
 
     #welcome h1 {
@@ -196,19 +12,22 @@ textarea {
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         border: 1px solid darkblue;
         border-radius: 2px;
+        text-transform: none;
     }
 
 #user {
     float: right;
-    clear: both;
-    margin: 10px;
     text-align: right;
     font-weight: bold;
+    color: #003e7e;
 }
 
-hr {
+#tabHr {
     margin: 0;
     padding: 0;
-    border-width: 2px;
-    border-color: gray;
+    border-width: 1px;
+    border-color: #003e7e;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-top: none;
 }

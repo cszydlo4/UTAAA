@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="en" lang="en">
 <head>
+
+    <title>@ViewBag.Title - Access Approval</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Mobile Specific Metas
@@ -8,16 +11,85 @@
     <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 
     <!-- FONT
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600|Open+Sans+Condensed:700|Open+Sans:800" rel="stylesheet" type="text/css" />
 
+    <!-- CSS
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    @*<link href="~/Content/ut-styles.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
 
+        <!-- Scripts
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        @*<script type="text/javascript" src="//www.utoledo.edu/_resources/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/common.js"></script>*@
 
-    <title>@ViewBag.Title - Access Approval</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
 <body>
+    <header>
+        <div id="header">
+            <div class="container">
+                <div id="ut_logo"><img src="~/Content/images/ut_logo.png" alt="The University of Toledo" id="logo" /><img src="~/Content/images/ut_shield.png" alt="UT" width="40" height="46" id="shield" /> <strong>Banner Access Approval</strong></div>
+                <!-- end ut_logo -->
+
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+
+    <div id="page_nav">
+        <div class="container">
+            <ul>
+                <li><a href="http://www.utoledo.edu/admission/">Admission</a></li>
+                <li><a href="http://www.utoledo.edu/programs">Acedmics</a></li>
+                <li><a href="http://www.utoledo.edu/research/">Research</a></li>
+                <li><a href="http://utrockets.com/">Athletics</a></li>
+                <li><a href="http://www.utoledo.edu/alumni/">Alumni</a></li>
+                <li><a href="http://www.utoledo.edu/campus/about/">About</a></li>
+                <li><a href="http://uthealth.utoledo.edu/">UT Health</a></li>
+                <li><a href="https://www.utfoundation.org/">Giving</a></li>
+                <li><a href="https://myut.utoledo.edu/portal/">My UT</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end page_nav -->
+
+    <div id="page_nav_mobile">
+        <ul id="page_menu">
+            <li><a href="#">Page Menu</a></li>
+        </ul>
+        <div id="page_menus_mobile">
+            <div class="primary-menu">
+                <ul>
+                    <li><a href="#">Link here</a></li>
+                    <li><a href="#">Link here</a></li>
+                    <li><a href="#">Link here</a></li>
+                    <li><a href="#">Link here</a></li>
+                </ul>
+            </div>
+            <h4>Welcome<i class="fa fa-plus-square-o"></i></h4>
+            <ul>
+                <li><a href="2col.html">Default Template</a></li>
+                <li><a href="3col.html">Third Menu Layout</a></li>
+                <li><a href="full_width.html">Full Width</a></li>
+                <li><a href="snippet.html">Snippets</a></li>
+                <li><a href="landing.html">Large Image Landing Page</a></li>
+            </ul>
+            <h4>Related Links<i class="fa fa-plus-square-o"></i></h4>
+            <ul>
+                <li><a href="#">Link here</a></li>
+                <li><a href="#">Link here</a></li>
+                <li><a href="#">Link here</a></li>
+                <li><a href="#">Link here</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end page_nav_mobile -->
+    <!-- End header and page navigation / Begin content
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -38,123 +110,111 @@
             </div>
         </div>*@
 
-    <header>
-        <div id="header">
-            <div class="container">
-                <div id="ut_logo">
-                    <img src="~/Content/Images/ut_logo.png" alt="The University of Toledo" id="logo" /><img src="~/Content/Images/ut_shield.png" alt="UT" width="40" height="46" id="shield" />
-                    <strong>Systems Access Requests</strong>
-                </div>
-                <!-- end ut_logo -->
 
+    <div id="content" class="container">
+        <div class="row">
+
+            <div id="welcome">
+                <h1>Welcome to the Access Request Portal</h1>
             </div>
+            <br />
+            <div id="user">
+                <p>
+                    Username: John Smith<br />
+                    R00000000
+                </p>
+            </div>
+
+
+
+
+
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'PastRequests')" id="defaultOpen">Past Requests</button>
+                <button class="tablinks" onclick="openTab(event, 'CurrentRequests')">Current Requests</button>
+                <button class="tablinks" onclick="openTab(event, 'NewRequests')">New Requests</button>
+                <button class="tablinks" onclick="openTab(event, 'PastApprovals')">Past Approvals</button>
+                <button class="tablinks" onclick="openTab(event, 'CurrentApprovals')">Current Approvals</button>
+            </div>
+
+            <!-- Tab content -->
+            <div id="PastRequests" class="tabcontent">
+                <hr id="tabHr" />
+                @Html.Partial("../Partials/PastRequests")
+            </div>
+
+            <div id="CurrentRequests" class="tabcontent">
+                <hr id="tabHr" />
+                @Html.Partial("../Partials/CurrentRequests")
+            </div>
+
+            <div id="NewRequests" class="tabcontent">
+                <hr id="tabHr" />
+                @Html.Partial("../Partials/NewRequests")
+            </div>
+
+            <div id="PastApprovals" class="tabcontent">
+                <hr id="tabHr" />
+                @Html.Partial("../Partials/PastApprovals")
+            </div>
+
+            <div id="CurrentApprovals" class="tabcontent">
+                <hr id="tabHr" />
+                @Html.Partial("../Partials/CurrentApprovals")
+            </div>
+
+
+            @Scripts.Render("~/Scripts/tabs.js")
+
+            <script>
+                // Get the element with id="defaultOpen" and click on it
+                document.getElementById("defaultOpen").click();
+            </script>
+
+            @RenderBody()
         </div>
-    </header>
-    <!-- end header -->
-
-
-    <div id="welcome">
-        <h1>Welcome to the Systems Access Request Portal</h1>
     </div>
 
-    <div id="user">
-        <p>
-            Username: John Smith<br />
-            R00000000
-        </p>
-    </div>
+        <!-- End content / Begin footer
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 
+        
+        <!-- end content_date -->
 
-
-
-    <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'PastRequests')" id="defaultOpen">Past Requests</button>
-        <button class="tablinks" onclick="openTab(event, 'CurrentRequests')">Current Requests</button>
-        <button class="tablinks" onclick="openTab(event, 'NewRequests')">New Requests</button>
-        <button class="tablinks" onclick="openTab(event, 'PastApprovals')">Past Approvals</button>
-        <button class="tablinks" onclick="openTab(event, 'CurrentApprovals')">Current Approvals</button>
-    </div>
-
-    <!-- Tab content -->
-    <div id="PastRequests" class="tabcontent">
-        <hr />
-        @Html.Partial("../Partials/PastRequests")
-    </div>
-
-    <div id="CurrentRequests" class="tabcontent">
-        <hr />
-        @Html.Partial("../Partials/CurrentRequests")
-    </div>
-
-    <div id="NewRequests" class="tabcontent">
-        <hr />
-        @Html.Partial("../Partials/NewRequests")
-    </div>
-
-    <div id="PastApprovals" class="tabcontent">
-        <hr />
-        @Html.Partial("../Partials/PastApprovals")
-    </div>
-
-    <div id="CurrentApprovals" class="tabcontent">
-        <hr />
-        @Html.Partial("../Partials/CurrentApprovals")
-    </div>
-
-
-    @Scripts.Render("~/Scripts/tabs.js")
-
-    <script>
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-    </script>
-
-
-
-
-    <div class="container body-content">
-        @RenderBody()
-
-        @*<!-- End content / Begin footer
-            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-
+        <footer>
+            <div id="footer">
                 <div id="content_date">
-                    <div class="container"><span id="directedit"><a id="de" href="#">Last Updated: 2/16/16</a></span></div>
+                    <span><a id="de" href="#">Last Updated: 3/16/18</a></span>
                 </div>
-                <!-- end content_date -->
-                <footer>
-                    <div id="footer">
-                        <div class="container">
-                            <div class="row">
-                                <div id="footer_logo" class="two columns"><img src="//intranet.utoledo.edu/common/images/ut_logo.png" alt="UT Logo" title="UT Logo"></div>
-                                <div id="footer_contact" class="ten columns">
-                                    <p>
-                                        The University of Toledo <br>
-                                        • 2801 W. Bancroft <br>
-                                        • Toledo, OH 43606-3390<br class="footer_contact_break">
-                                        © The University of Toledo. <br>
-                                        • All rights reserved. <br>
-                                        • 1.800.586.5336
-                                    </p>
-                                    <ul id="footer_links">
-                                        <li class="footer_links_item"><a class="footer_links_link" href="/campus/terms.html">Terms of Use</a></li>
-                                        <li class="footer_links_item"><a class="footer_links_link" href="/offices/marketing/web/accessibility.html">Accessibility</a></li>
-                                        <li class="footer_links_item"><a class="footer_links_link" href="mailto:webmaster@utoledo.edu">Feedback</a></li>
-                                        <li class="footer_links_item"><a class="footer_links_link" href="/campus/about/address.html">Contact us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                <div class="container">
+                    <div class="row">
+                        <div id="footer_logo" class="two columns"><img src="~/Content/images//ut_logo.png" alt="UT Logo" title="UT Logo"></div>
+                        <div id="footer_contact" class="ten columns">
+                            <p>
+                                The University of Toledo <br>
+                                • 2801 W. Bancroft <br>
+                                • Toledo, OH 43606-3390<br class="footer_contact_break">
+                                © The University of Toledo. <br>
+                                • All rights reserved. <br>
+                                • 1.800.586.5336
+                            </p>
+                            <ul id="footer_links">
+                                <li class="footer_links_item"><a class="footer_links_link" href="/campus/terms.html">Terms of Use</a></li>
+                                <li class="footer_links_item"><a class="footer_links_link" href="/offices/marketing/web/accessibility.html">Accessibility</a></li>
+                                <li class="footer_links_item"><a class="footer_links_link" href="mailto:webmaster@utoledo.edu">Feedback</a></li>
+                                <li class="footer_links_item"><a class="footer_links_link" href="/campus/about/address.html">Contact us</a></li>
+                            </ul>
                         </div>
                     </div>
-                </footer>
-                <!-- end footer -->*@
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
 
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
