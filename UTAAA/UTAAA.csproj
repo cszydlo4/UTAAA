@@ -191,12 +191,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Requests\Request.cshtml" />
-    <Content Include="Views\Partials\NewRequests.cshtml" />
-    <Content Include="Views\Partials\CurrentRequests.cshtml" />
-    <Content Include="Views\Partials\PastRequests.cshtml" />
-    <Content Include="Views\Partials\PastApprovals.cshtml" />
-    <Content Include="Views\Partials\CurrentApprovals.cshtml" />
+    <Content Include="Views\Tabs\NewRequests.cshtml" />
+    <Content Include="Views\Tabs\CurrentRequests.cshtml" />
+    <Content Include="Views\Tabs\PastRequests.cshtml" />
+    <Content Include="Views\Tabs\PastApprovals.cshtml" />
+    <Content Include="Views\Tabs\CurrentApprovals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

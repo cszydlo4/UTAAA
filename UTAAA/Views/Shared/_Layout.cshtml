@@ -125,13 +125,9 @@
                 </p>
             </div>
 
-
-
-
-
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'PastRequests')" id="defaultOpen">Past Requests</button>
-                <button class="tablinks" onclick="openTab(event, 'CurrentRequests')">Current Requests</button>
+                <button class="tablinks" onclick="openTab(event, 'PastRequests')">Past Requests</button>
+                <button class="tablinks" onclick="openTab(event, 'CurrentRequests')" id="defaultOpen">Current Requests</button>
                 <button class="tablinks" onclick="openTab(event, 'NewRequests')">New Requests</button>
                 <button class="tablinks" onclick="openTab(event, 'PastApprovals')">Past Approvals</button>
                 <button class="tablinks" onclick="openTab(event, 'CurrentApprovals')">Current Approvals</button>
@@ -140,27 +136,27 @@
             <!-- Tab content -->
             <div id="PastRequests" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Partials/PastRequests")
+                @Html.Partial("../Tabs/PastRequests")
             </div>
 
             <div id="CurrentRequests" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Partials/CurrentRequests")
+                @Html.Partial("../Tabs/CurrentRequests")
             </div>
 
             <div id="NewRequests" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Partials/NewRequests")
+                @Html.Partial("../Tabs/NewRequests")
             </div>
 
             <div id="PastApprovals" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Partials/PastApprovals")
+                @Html.Partial("../Tabs/PastApprovals")
             </div>
 
             <div id="CurrentApprovals" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Partials/CurrentApprovals")
+                @Html.Partial("../Tabs/CurrentApprovals")
             </div>
 
 
