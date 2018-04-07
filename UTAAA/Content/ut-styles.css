@@ -349,8 +349,10 @@ optgroup {
  */
 
 table {
-	border-collapse: collapse;
+	border-collapse: separate;
 	border-spacing: 0;
+    clear: both;
+    display: block;
 }
 /*
 td,
@@ -398,6 +400,8 @@ th {
 	padding: 0 20px;
 	/*background: url(images/grid-bg.gif) repeat-y top left;*/
 	box-sizing: border-box;
+    height: 100%;
+    min-height: 100%;
 }
 
 .column, .columns {
@@ -552,14 +556,22 @@ html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
 	font-size: 62.5%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 body {
-	font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
-	line-height: 1.6;
-	font-weight: normal;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: #4c4c4c;
+    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    line-height: 1.6;
+    font-weight: normal;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: #4c4c4c;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 /* Typography
 “ */
@@ -1209,12 +1221,13 @@ there.
 “ */
 
 #footer {
-	clear: both;
-	background: #003e7e url(images/footer_bg.gif) repeat-y top center;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
+    background: #003e7e url(images/footer_bg.gif) repeat-y top center;
+    
+    left: 0;
+    bottom: 0 !important;
+    width: 100%;
+    clear: both;
+    margin: 0, -100px;
 }
 
 	#footer .container {
