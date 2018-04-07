@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="en" lang="en">
 <head>
 
-    <title>@ViewBag.Title - Access Approval</title>
+    <title>Access Request Portal</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Mobile Specific Metas
@@ -133,30 +133,30 @@
                 <button class="tablinks" onclick="openTab(event, 'CurrentApprovals')">Current Approvals</button>
             </div>
 
-            <!-- Tab content -->
+            <!-- Tabs -->
             <div id="PastRequests" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Tabs/PastRequests")
+                @Html.Action("Index", "PastRequests")
             </div>
 
             <div id="CurrentRequests" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Tabs/CurrentRequests")
+                @Html.Action("Index", "CurrentRequests")
             </div>
 
             <div id="NewRequests" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Tabs/NewRequests")
+                @Html.Action("Index", "NewRequests")
             </div>
 
             <div id="PastApprovals" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Tabs/PastApprovals")
+                @Html.Action("Index", "PastApprovals")
             </div>
 
             <div id="CurrentApprovals" class="tabcontent">
                 <hr id="tabHr" />
-                @Html.Partial("../Tabs/CurrentApprovals")
+                @Html.Action("Index", "CurrentApprovals")
             </div>
 
 
@@ -181,7 +181,7 @@
         <footer>
             <div id="footer">
                 <div id="content_date">
-                    <span><a id="de" href="#">Last Updated: 3/16/18</a></span>
+                    <span><a id="de" href="#">Last Updated: 4/6/18</a></span>
                 </div>
                 <div class="container">
                     <div class="row">

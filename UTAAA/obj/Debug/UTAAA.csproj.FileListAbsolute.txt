@@ -78,5 +78,6 @@ D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.WindowsServer.xml
 D:\GitHub\UTAAA\UTAAA\bin\Microsoft.AI.Web.xml
 D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.csproj.CoreCompileInputs.cache
+D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.csproj.CopyComplete
 D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.dll
 D:\GitHub\UTAAA\UTAAA\obj\Debug\UTAAA.pdb
