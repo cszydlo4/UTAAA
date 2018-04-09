@@ -1,45 +1,32 @@
 ﻿@model IEnumerable<UTAAA.Models.RequestModel>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApprovalLevel)
-        </th>
+        <th>Request ID</th>
+        <th>Date Submitted</th>
+        <th>Awaiting Approval By</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+    if (item.REQUESTSTATUS_DESCRIPTION == "Pending")
+    {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.SECURITYACCESSDESC)
+            @Html.DisplayFor(modelItem => item.REQ_ID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RequestDate)
+            @Html.DisplayFor(modelItem => item.REQUESTDATE)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RequestStatus)
+            @Html.DisplayFor(modelItem => item.AL_DESCRIPTION)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApprovalLevel)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
+    }
 }
 
 </table>

@@ -1,1 +1,32 @@
-﻿
+﻿@model IEnumerable<UTAAA.Models.RequestModel>
+
+<table class="table">
+    <tr>
+        <th>Request ID</th>
+        <th>Date Processed</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.REQUESTSTATUS_DESCRIPTION != "Pending")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQ_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTIONDATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQUESTSTATUS_DESCRIPTION)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

@@ -39,3 +39,26 @@
     margin: 0;
     padding: 0;
 }
+
+table {
+    margin: 1em 0 0 0;
+    border-collapse: collapse;
+    width: 100%!important;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    width: 10%;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: LightSteelblue;
+}

@@ -7,15 +7,11 @@ namespace UTAAA.Models
 {
     public class RequestModel
     {
-        public int RequestID { get; set; }
-        public string RequestDate { get; set; }
-        public int RequestStatus { get; set; }
-        public int ApprovalLevel { get; set; }
-
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        public string SECURITYACCESSDESC { get; set; }
-
+        
+        public int REQ_ID { get; set; }
+        public string REQUESTDATE { get; set; }
+        public string AL_DESCRIPTION { get; set; }
+        public string REQUESTSTATUS_DESCRIPTION { get; set; }
+        public string ACTIONDATE { get; set; }
     }
 }
