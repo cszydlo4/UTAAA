@@ -10,7 +10,6 @@
         background-color: #ffd200;
         float: left;
         border: 1px solid #003e7e;
-        border-bottom: none;
         outline: none;
         cursor: pointer;
         transition: 0.3s;
@@ -20,6 +19,7 @@
         color: #003e7e;
         font-size: large;
         text-transform: none;
+        overflow: hidden!important;
     }
 
         /* Change background color of buttons on hover */
@@ -36,7 +36,6 @@
 /* Style the tab content */
 .tabcontent {
     display: none;
-    margin: 0;
     padding: 0;
 }
 

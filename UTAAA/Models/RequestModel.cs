@@ -12,6 +12,6 @@ namespace UTAAA.Models
         public string REQUESTDATE { get; set; }
         public string AL_DESCRIPTION { get; set; }
         public string REQUESTSTATUS_DESCRIPTION { get; set; }
-        public string ACTIONDATE { get; set; }
+        public DateTime ACTIONDATE { get; set; }
     }
 }

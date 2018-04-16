@@ -20,6 +20,7 @@
     text-align: right;
     font-weight: bold;
     color: #003e7e;
+    clear: both!important;
 }
 
 #tabHr {
@@ -30,4 +31,38 @@
     margin-top: auto;
     margin-bottom: auto;
     border-top: none;
+}
+
+hr {
+    display: block;
+    margin: 0 auto 1em!important;
+    border-style: inset;
+    border-width: 1px;
+}
+
+h3 {
+    margin: 0!important;
+    padding: 0!important;
+}
+.subBtn {
+    padding: initial 2em!important;
+}
+html {
+    min-height: 100%!important;
+    position: relative!important;
+}
+
+body {
+    margin: 0 0 150px!important;
+}
+footer {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 150px !important;
+}
+
+#content {
+    margin-bottom: 5em!important; 
 }

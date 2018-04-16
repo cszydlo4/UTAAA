@@ -152,6 +152,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CurrentApprovalsController.cs" />
     <Compile Include="Controllers\CurrentRequestsController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\NewRequestsController.cs" />
     <Compile Include="Controllers\PastApprovalsController.cs" />
     <Compile Include="Controllers\PastRequestsController.cs" />
@@ -159,8 +160,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccessModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\HelperModel.cs" />
     <Compile Include="Models\RequestModel.cs" />
+    <Compile Include="NoDirectAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,15 +211,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\CurrentRequests\Index.cshtml" />
-    <Content Include="Views\NewRequests\Index.cshtml" />
     <Content Include="Views\CurrentApprovals\Index.cshtml" />
     <Content Include="Views\PastApprovals\Index.cshtml" />
     <Content Include="Views\PastRequests\Index.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\NewRequests\Index.cshtml" />
+    <Content Include="Views\NewRequests\Access.cshtml" />
+    <Content Include="Views\NewRequests\EmployeeExists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

@@ -27,6 +27,7 @@ namespace UTAAA
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/Site.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/tabs.css",
                       "~/Content/font-awesome.css",
                       "~/Content/tabs.css",
