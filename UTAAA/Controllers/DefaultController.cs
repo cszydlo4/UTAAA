@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*==================================================*/
+/*Only being used as a template for real controllers*/
+/*==================================================*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

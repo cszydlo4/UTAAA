@@ -56,7 +56,7 @@ namespace UTAAA.Controllers
                     }
                     else
                     {
-                        return PartialView("EmployeeExists"); // Temporary for testing
+                        return PartialView("EmployeeExists"); // Display that employee is already saved in db, temporary for testing
                     }
                 } else
                 {

@@ -1,1 +1,49 @@
-﻿<h1>Work in progress.</h1>
+﻿<!-------------------------------->
+<!--Pending Approvals Index View-->
+<!-------------------------------->
+
+@model IEnumerable<UTAAA.Models.RequestModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.REQUESTDATE)
+        </th>
+        <th>
+            Employee
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCLASSDESC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REQTYPE_DESC)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.REQUESTSTATUS_DESCRIPTION == "Pending")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQUESTDATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FIRST_NAME)
+                    @Html.DisplayFor(modelItem => item.LAST_NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SCLASSDESC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQTYPE_DESC)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

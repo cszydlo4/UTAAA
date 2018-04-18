@@ -1,4 +1,6 @@
-﻿//Makes db connection string simpler
+﻿/*==================================*/
+/*Makes db connection string simpler*/
+/*==================================*/
 
 using System;
 using System.Collections.Generic;

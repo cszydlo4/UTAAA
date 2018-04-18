@@ -1,34 +1,48 @@
-﻿<!--Current Requests Index View-->
+﻿<!------------------------------->
+<!--Current Requests Index View-->
+<!------------------------------->
 
 @model IEnumerable<UTAAA.Models.RequestModel>
 
 <table class="table">
     <tr>
-        <th>Request ID</th>
-        <th>Date Submitted</th>
-        <th>Awaiting Approval By</th>
+        <th>
+            @Html.DisplayNameFor(model => model.REQUESTDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCLASSDESC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REQTYPE_DESC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AL_DESCRIPTION)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
-    if (item.REQUESTSTATUS_DESCRIPTION == "Pending")
+    @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.REQ_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.REQUESTDATE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AL_DESCRIPTION)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+        if (item.REQUESTSTATUS_DESCRIPTION == "Pending")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQUESTDATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SCLASSDESC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQTYPE_DESC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AL_DESCRIPTION)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     }
-}
 
 </table>

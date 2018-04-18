@@ -11,17 +11,25 @@ namespace UTAAA.Controllers
 {
     public class PastRequestsController : Controller
     {
-        int testRocketID = 12345678;
+        string testRocketID = "R25419782";
 
         // GET: PastRequests
         public ActionResult Index()
         {
             List<RequestModel> requests = new List<RequestModel>();
 
-            //requests.Add(new RequestModel { RequestID = 1, RequestDate = "4/6/2018", RequestStatus = 1, ApprovalLevel = 1 });
             using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
             {
-                //requests = dbConn.Query<RequestModel>("SELECT REQUEST.REQ_ID, REQUEST.REQUESTDATE, REQUESTAPPROVALS.ACTIONDATE, REQUESTSTATUS.REQUESTSTATUS_DESCRIPTION FROM REQUEST INNER JOIN REQUESTAPPROVALS ON REQUEST.REQ_ID=REQUESTAPPROVALS.REQ_ID INNER JOIN REQUESTSTATUS ON REQUESTAPPROVALS.REQSTATUSID = REQUESTSTATUS.REQSTATUS_ID WHERE REQUEST.ROCKET_ID = " + testRocketID + " ORDER BY REQUEST.REQ_ID").ToList();
+                requests = dbConn.Query<RequestModel>(@"SELECT REQUESTAPPROVALS.ACTIONDATE, SECURITYCLASS.SCLASSDESC, ACCESSREQTYPE.REQTYPE_DESC, 
+                                                            REQUESTSTATUS.REQUESTSTATUS_DESCRIPTION 
+                                                        FROM REQUESTDETAILS 
+                                                        INNER JOIN SECURITYCLASS ON REQUESTDETAILS.SECURITYCLASS_ID = SECURITYCLASS.SECURITYCLASS_ID 
+                                                        INNER JOIN REQUESTAPPROVALS ON REQUESTDETAILS.REQUESTDETAILS_ID = REQUESTAPPROVALS.REQUESTDETAILS_ID 
+                                                        INNER JOIN ACCESSREQTYPE ON REQUESTDETAILS.REQTYPE_ID = ACCESSREQTYPE.REQTYPE_ID 
+                                                        INNER JOIN REQUESTSTATUS ON REQUESTDETAILS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID 
+                                                        INNER JOIN REQUEST ON REQUEST.REQ_ID = REQUESTDETAILS.REQ_ID 
+                                                        WHERE REQUEST.ROCKET_ID = '" + testRocketID + @"' 
+                                                        ORDER BY REQUESTAPPROVALS.ACTIONDATE").ToList();
             }
 
             return PartialView(requests);

@@ -1,12 +1,23 @@
-﻿<!--Current Requests Index View-->
+﻿<!------------------------------->
+<!--Current Requests Index View-->
+<!------------------------------->
 
 @model IEnumerable<UTAAA.Models.RequestModel>
 
 <table class="table">
     <tr>
-        <th>Request ID</th>
-        <th>Date Processed</th>
-        <th>Status</th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACTIONDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCLASSDESC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REQTYPE_DESC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REQUESTSTATUS_DESCRIPTION)
+        </th>
         <th></th>
     </tr>
 
@@ -16,10 +27,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.REQ_ID)
+                    @Html.DisplayFor(modelItem => item.ACTIONDATE)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ACTIONDATE)
+                    @Html.DisplayFor(modelItem => item.SCLASSDESC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REQTYPE_DESC)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.REQUESTSTATUS_DESCRIPTION)
