@@ -1,6 +1,6 @@
-﻿/*==================================*/
-/*Makes db connection string simpler*/
-/*==================================*/
+﻿/*-----------------------------------------*/
+/*Used to make db connection string simpler*/
+/*-----------------------------------------*/
 
 using System;
 using System.Collections.Generic;

@@ -10,6 +10,7 @@ namespace UTAAA.Models
 {
     public class EmployeeModel
     {
+        /*EMPLOYEES*/
         [Display(Name = "Rocket ID"), Required]
         public string ROCKET_ID { get; set; }
 

@@ -1,0 +1,10 @@
+﻿/*-----------------------------------------------*/
+/*---------Used on the HideTab Layout------------*/
+/*-----------------------------------------------*/
+
+.tab button:hover {
+    background: #ffd200 !important;
+    color: #003e7e !important;
+    border: 1px solid #003e7e !important;
+    cursor: default;
+}

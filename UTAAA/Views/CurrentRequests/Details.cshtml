@@ -1,0 +1,93 @@
+﻿@model UTAAA.Models.AccessModel
+
+@{ 
+    Layout = "~/Views/Shared/HideTabLayout.cshtml";
+}
+
+<div>
+    <br />
+    <h3>Request for "@Html.DisplayFor(model => model.SCLASSDESC)" submitted on @Html.DisplayFor(model => model.REQUESTDATE)</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SYSTEMNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SYSTEMNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SUBJECTAREANAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUBJECTAREANAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCLASSDESC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCLASSDESC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SECURITYACCESSDESC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SECURITYACCESSDESC)
+        </dd>
+
+    </dl>
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REQTYPE_DESC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REQTYPE_DESC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REQUESTSTATUS_DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REQUESTSTATUS_DESCRIPTION)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.REASON_FOR_ACCESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REASON_FOR_ACCESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AL_DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AL_DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIONDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIONDATE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    <h3>@Html.ActionLink("BACK", "Index", "Site")</h3> 
+</p>

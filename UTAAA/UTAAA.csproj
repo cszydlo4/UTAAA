@@ -171,6 +171,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\no-hover.css" />
     <Content Include="Content\tabs.css" />
     <Content Include="Content\ut-styles.css" />
     <Content Include="favicon.ico" />
@@ -218,6 +219,11 @@
     <Content Include="Views\NewRequests\Index.cshtml" />
     <Content Include="Views\NewRequests\Access.cshtml" />
     <Content Include="Views\NewRequests\EmployeeExists.cshtml" />
+    <Content Include="Views\PastRequests\Details.cshtml" />
+    <Content Include="Views\Shared\HideTabLayout.cshtml" />
+    <Content Include="Views\CurrentRequests\Details.cshtml" />
+    <Content Include="Views\PastApprovals\Details.cshtml" />
+    <Content Include="Views\CurrentApprovals\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

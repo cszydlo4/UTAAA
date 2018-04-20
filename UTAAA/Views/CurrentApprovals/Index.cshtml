@@ -40,7 +40,7 @@
                     @Html.DisplayFor(modelItem => item.REQTYPE_DESC)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Details", "Details", new { REQUESTDETAILS_ID = item.REQUESTDETAILS_ID }, null)
                 </td>
             </tr>
         }

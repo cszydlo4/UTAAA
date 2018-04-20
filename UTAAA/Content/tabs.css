@@ -33,12 +33,19 @@
             color: white;
         }
 
+        .tab button.unactive {
+            background: #ffd200;
+            color: #003e7e;
+            border: 1px solid #003e7e;
+        }
+
 /* Style the tab content */
 .tabcontent {
     display: none;
     padding: 0;
 }
 
+/* Tables */
 table {
     margin: 1em 0 0 0;
     border-collapse: collapse;

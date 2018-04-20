@@ -18,3 +18,7 @@
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+function doNothing(evt, tabName) {
+    evt.currentTarget.className += " unactive";
+}

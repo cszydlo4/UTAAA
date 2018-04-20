@@ -1,4 +1,11 @@
-﻿<!doctype html>
+﻿<!--------------------------------------------------------------------------------------------- 
+    This is the layout page set when a Details view is selected.
+     It hides the tab content so that only the Details view is shown.
+     It also removes the tab links and hover styling so that users are forced to use back link.
+     This is to resolve issue with views being displayed incorrectly.
+------------------------------------------------------------------------------------------------>
+
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="en" lang="en">
 <head>
 
@@ -15,13 +22,8 @@
 
     <!-- CSS
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    @*<link href="~/Content/ut-styles.css" rel="stylesheet" type="text/css" />
-        <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
+   <link href="~/Content/no-hover.css" rel="stylesheet" type="text/css" />
 
-        <!-- Scripts
-          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        @*<script type="text/javascript" src="//www.utoledo.edu/_resources/js/jquery-1.11.2.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/common.js"></script>*@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -106,48 +108,22 @@
             </div>
 
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'PastRequests')">Past Requests</button>
-                <button class="tablinks" onclick="openTab(event, 'CurrentRequests')">Pending Requests</button>
-                <button class="tablinks" onclick="openTab(event, 'NewRequests')" id="DefaultOpen">New Requests</button>
-                <button class="tablinks" onclick="openTab(event, 'PastApprovals')">Past Approvals</button>
-                <button class="tablinks" onclick="openTab(event, 'CurrentApprovals')">Pending Approvals</button>
+                <button class="tablinks" onclick="doNothing(event, 'PastRequests')">Past Requests</button>
+                <button class="tablinks" onclick="doNothing(event, 'CurrentRequests')">Pending Requests</button>
+                <button class="tablinks" onclick="doNothing(event, 'NewRequests')">New Requests</button>
+                <button class="tablinks" onclick="doNothing(event, 'PastApprovals')">Past Approvals</button>
+                <button class="tablinks" onclick="doNothing(event, 'CurrentApprovals')">Pending Approvals</button>
             </div>
 
             <!-- Tabs -->
-            <div id="PastRequests" class="tabcontent">
-                <hr id="tabHr" />
-                @Html.Action("Index", "PastRequests")
-            </div>
-
-            <div id="CurrentRequests" class="tabcontent">
-                <hr id="tabHr" />
-                @Html.Action("Index", "CurrentRequests")
-            </div>
-
-            <div id="NewRequests" class="tabcontent">
-                <hr id="tabHr" />
-                @Html.Action("Index", "NewRequests")
-            </div>
-
-
-            <div id="PastApprovals" class="tabcontent">
-                <hr id="tabHr" />
-                @Html.Action("Index", "PastApprovals")
-            </div>
-
-            <div id="CurrentApprovals" class="tabcontent">
-                <hr id="tabHr" />
-                @Html.Action("Index", "CurrentApprovals")
-            </div>
+            <div id="PastRequests" class="tabcontent"></div>
+            <div id="CurrentRequests" class="tabcontent"></div>
+            <div id="NewRequests" class="tabcontent"></div>
+            <div id="PastApprovals" class="tabcontent"></div>
+            <div id="CurrentApprovals" class="tabcontent"></div>
 
 
             @Scripts.Render("~/Scripts/tabs.js")
-     
-            <script>
-                // Get the element with id="defaultOpen" and click on it
-                document.getElementById("DefaultOpen").click();
-            </script>
-
             @RenderBody()
         </div>
     </div>
