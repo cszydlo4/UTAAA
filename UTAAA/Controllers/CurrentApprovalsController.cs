@@ -30,8 +30,8 @@ namespace UTAAA.Controllers
                                                          INNER JOIN REQUESTDETAILS ON REQUESTDETAILS.REQ_ID = REQUEST.REQ_ID 
                                                          INNER JOIN SECURITYCLASS ON REQUESTDETAILS.SECURITYCLASS_ID = SECURITYCLASS.SECURITYCLASS_ID 
                                                          INNER JOIN ACCESSREQTYPE ON REQUESTDETAILS.REQTYPE_ID = ACCESSREQTYPE.REQTYPE_ID 
-                                                         INNER JOIN REQUESTSTATUS ON REQUESTDETAILS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID 
                                                          INNER JOIN REQUESTAPPROVALS ON REQUESTDETAILS.REQUESTDETAILS_ID = REQUESTAPPROVALS.REQUESTDETAILS_ID 
+                                                         INNER JOIN REQUESTSTATUS ON REQUESTAPPROVALS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID 
                                                          WHERE REQUESTAPPROVALS.APPROVAL_ROCKETID = '" + testRocketID + @"' 
                                                          ORDER BY REQUEST.REQUESTDATE").ToList();
             }
@@ -51,14 +51,14 @@ namespace UTAAA.Controllers
                                                                 APPROVALLEVELS.AL_DESCRIPTION, ACCESSREQTYPE.REQTYPE_DESC, REQUEST.REQUESTDATE,
                                                                 EMPLOYEES.FIRST_NAME, EMPLOYEES.LAST_NAME, EMPLOYEES.EMAIL, EMPLOYEES.TITLE,
                                                                 EMPLOYEES.PHONE_NUMBER, EMPLOYEESTATUS.STATUS_DESC, DEPARTMENT.DEPT_NAME, EMPLOYEES.SUPERVISOR_NAME,
-                                                                EMPLOYEES.SUPERVISOR_EMAIL
+                                                                EMPLOYEES.SUPERVISOR_EMAIL, REQUESTAPPROVALS.REQSTATUS_ID
                                                             FROM SECURITYCLASS 
                                                             INNER JOIN SUBJECT_AREAS ON SECURITYCLASS.SUBJECTAREA_ID = SUBJECT_AREAS.SUBJECTAREA_ID 
                                                             INNER JOIN SECURITY_ACCESS ON SECURITYCLASS.SECURITYACCESS_ID = SECURITY_ACCESS.SECURITYACCESS_ID 
                                                             INNER JOIN SYSTEMS ON SECURITYCLASS.SYSTEMS_ID = SYSTEMS.SYSTEMS_ID 
                                                             INNER JOIN REQUESTDETAILS ON SECURITYCLASS.SECURITYCLASS_ID = REQUESTDETAILS.SECURITYCLASS_ID 
                                                             INNER JOIN REQUESTAPPROVALS ON REQUESTDETAILS.REQUESTDETAILS_ID = REQUESTAPPROVALS.REQUESTDETAILS_ID
-                                                            INNER JOIN REQUESTSTATUS ON REQUESTDETAILS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID
+                                                            INNER JOIN REQUESTSTATUS ON REQUESTAPPROVALS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID
                                                             INNER JOIN APPROVALLEVELS ON REQUESTAPPROVALS.AL_ID = APPROVALLEVELS.AL_ID
                                                             INNER JOIN ACCESSREQTYPE ON REQUESTDETAILS.REQTYPE_ID = ACCESSREQTYPE.REQTYPE_ID
                                                             INNER JOIN REQUEST ON REQUESTDETAILS.REQ_ID = REQUEST.REQ_ID

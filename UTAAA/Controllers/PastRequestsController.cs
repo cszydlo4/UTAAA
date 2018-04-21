@@ -20,12 +20,13 @@ namespace UTAAA.Controllers
             using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
             {
                 requests = dbConn.Query<RequestModel>(@"SELECT REQUESTAPPROVALS.ACTIONDATE, SECURITYCLASS.SCLASSDESC, ACCESSREQTYPE.REQTYPE_DESC, 
-                                                            REQUESTSTATUS.REQUESTSTATUS_DESCRIPTION, REQUESTDETAILS.REQUESTDETAILS_ID
+                                                            REQUESTAPPROVALS.REQSTATUS_ID AS APPROVALSTATUS_ID, REQUESTSTATUS.REQUESTSTATUS_DESCRIPTION, 
+                                                            REQUESTDETAILS.REQUESTDETAILS_ID, REQUESTAPPROVALS.AL_ID, REQUESTAPPROVALS.REASON_OF_DENIAL
                                                         FROM REQUESTDETAILS 
                                                         INNER JOIN SECURITYCLASS ON REQUESTDETAILS.SECURITYCLASS_ID = SECURITYCLASS.SECURITYCLASS_ID 
                                                         INNER JOIN REQUESTAPPROVALS ON REQUESTDETAILS.REQUESTDETAILS_ID = REQUESTAPPROVALS.REQUESTDETAILS_ID 
                                                         INNER JOIN ACCESSREQTYPE ON REQUESTDETAILS.REQTYPE_ID = ACCESSREQTYPE.REQTYPE_ID 
-                                                        INNER JOIN REQUESTSTATUS ON REQUESTDETAILS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID 
+                                                        INNER JOIN REQUESTSTATUS ON REQUESTAPPROVALS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID
                                                         INNER JOIN REQUEST ON REQUEST.REQ_ID = REQUESTDETAILS.REQ_ID 
                                                         WHERE REQUEST.ROCKET_ID = '" + testRocketID + @"' 
                                                         ORDER BY REQUESTAPPROVALS.ACTIONDATE").ToList();
@@ -50,19 +51,20 @@ namespace UTAAA.Controllers
                                                             INNER JOIN SYSTEMS ON SECURITYCLASS.SYSTEMS_ID = SYSTEMS.SYSTEMS_ID 
                                                             INNER JOIN REQUESTDETAILS ON SECURITYCLASS.SECURITYCLASS_ID = REQUESTDETAILS.SECURITYCLASS_ID 
                                                             INNER JOIN REQUESTAPPROVALS ON REQUESTDETAILS.REQUESTDETAILS_ID = REQUESTAPPROVALS.REQUESTDETAILS_ID
-                                                            INNER JOIN REQUESTSTATUS ON REQUESTDETAILS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID
+                                                            INNER JOIN REQUESTSTATUS ON REQUESTAPPROVALS.REQSTATUS_ID = REQUESTSTATUS.REQSTATUS_ID
                                                             INNER JOIN APPROVALLEVELS ON REQUESTAPPROVALS.AL_ID = APPROVALLEVELS.AL_ID
                                                             INNER JOIN ACCESSREQTYPE ON REQUESTDETAILS.REQTYPE_ID = ACCESSREQTYPE.REQTYPE_ID
                                                             INNER JOIN REQUEST ON REQUESTDETAILS.REQ_ID = REQUEST.REQ_ID
                                                             WHERE REQUESTDETAILS.REQUESTDETAILS_ID = " + REQUESTDETAILS_ID).ToList();
             }
-            
-            if (accessRequest[0].REASON_OF_DENIAL == null)
+            foreach (var item in accessRequest)
             {
-                accessRequest[0].REASON_OF_DENIAL = "N/A";
+                if (item.AL_DESCRIPTION == "Admin" | item.REASON_OF_DENIAL != null)
+                {
+                    return PartialView(item); // Only returns the final approval in the chain
+                }
             }
-
-            return PartialView(accessRequest[0]);
+            return PartialView(accessRequest); // Will not run as long as a reason for denial is required for denials and admins have the final approval
         }
     }
 }

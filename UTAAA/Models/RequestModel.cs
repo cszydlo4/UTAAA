@@ -48,6 +48,9 @@ namespace UTAAA.Models
         [Display(Name = "Reason of Denial")]
         public string REASON_OF_DENIAL { get; set; }
 
+        [Display(Name = "Request Status ID")]
+        public int APPROVALSTATUS_ID { get; set; }
+
         /*REQUESTSTATUS*/
         [Display(Name = "Request Status ID")]
         public int REQSTATUS_ID { get; set; }

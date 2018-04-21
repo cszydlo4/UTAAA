@@ -23,7 +23,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.REQUESTSTATUS_DESCRIPTION != "Pending")
+        if ((item.AL_ID == 4 | item.REASON_OF_DENIAL != null) & item.APPROVALSTATUS_ID != 1)
         {
             <tr>
                 <td>
