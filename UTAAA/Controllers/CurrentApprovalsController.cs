@@ -51,7 +51,8 @@ namespace UTAAA.Controllers
                                                                 APPROVALLEVELS.AL_DESCRIPTION, ACCESSREQTYPE.REQTYPE_DESC, REQUEST.REQUESTDATE,
                                                                 EMPLOYEES.FIRST_NAME, EMPLOYEES.LAST_NAME, EMPLOYEES.EMAIL, EMPLOYEES.TITLE,
                                                                 EMPLOYEES.PHONE_NUMBER, EMPLOYEESTATUS.STATUS_DESC, DEPARTMENT.DEPT_NAME, EMPLOYEES.SUPERVISOR_NAME,
-                                                                EMPLOYEES.SUPERVISOR_EMAIL, REQUESTAPPROVALS.REQSTATUS_ID
+                                                                EMPLOYEES.SUPERVISOR_EMAIL, REQUESTAPPROVALS.REQSTATUS_ID, REQUESTDETAILS.REQUESTDETAILS_ID,
+                                                                REQUESTAPPROVALS.APPROVAL_ROCKETID
                                                             FROM SECURITYCLASS 
                                                             INNER JOIN SUBJECT_AREAS ON SECURITYCLASS.SUBJECTAREA_ID = SUBJECT_AREAS.SUBJECTAREA_ID 
                                                             INNER JOIN SECURITY_ACCESS ON SECURITYCLASS.SECURITYACCESS_ID = SECURITY_ACCESS.SECURITYACCESS_ID 
@@ -67,8 +68,47 @@ namespace UTAAA.Controllers
                                                             INNER JOIN DEPARTMENT ON EMPLOYEES.DEPT_ID = DEPARTMENT.DEPT_ID
                                                             WHERE REQUESTDETAILS.REQUESTDETAILS_ID = " + REQUESTDETAILS_ID).ToList();
             }
+
+            foreach (var item in accessRequest)
+            {
+                if (item.APPROVAL_ROCKETID == testRocketID)
+                {
+                    return PartialView(item); // Only returns the final approval in the chain
+                }
+            }
+            return PartialView(); // Will not run
+        }
+
+        /*-----------------------------Deny View--------------------------------*/
+        public ActionResult Deny(int REQUESTDETAILS_ID)
+        {
+            DenialModel denial = new DenialModel();
+            denial.REQUESTDETAILS_ID = REQUESTDETAILS_ID;
             
-            return PartialView(accessRequest[0]);
+            return PartialView(denial);
+        }
+
+        [HttpPost]
+        public ActionResult Deny(DenialModel denial)
+        {
+            using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
+            {
+                if (ModelState.IsValid)
+                {
+                    string sqlQuery1 = @"UPDATE REQUESTDETAILS SET REQSTATUS_ID = " + denial.REQSTATUS_ID + @" WHERE REQUESTDETAILS_ID = " + denial.REQUESTDETAILS_ID;
+
+                    string sqlQuery2 = @"UPDATE REQUESTAPPROVALS SET ACTIONDATE = SYSDATE, REQSTATUS_ID = " + denial.REQSTATUS_ID + @", REASON_OF_DENIAL = '" + denial.REASON_OF_DENIAL + @"' WHERE REQUESTDETAILS_ID = " + denial.REQUESTDETAILS_ID + @" AND APPROVAL_ROCKETID = '" + testRocketID + "'";
+                    
+                    dbConn.Execute(sqlQuery1);
+                    dbConn.Execute(sqlQuery2);
+
+                    return PartialView("Submitted");
+                } else
+                {
+                    return PartialView("Deny");
+                }
+            }
+            
         }
     }
 }

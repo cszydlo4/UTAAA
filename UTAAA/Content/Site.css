@@ -45,8 +45,9 @@ h3 {
     padding: 0!important;
 }
 .subBtn {
-    padding: initial 2em!important;
+    text-decoration: none!important;
 }
+
 html {
     min-height: 100%!important;
     position: relative!important;
@@ -65,4 +66,8 @@ footer {
 
 #content {
     margin-bottom: 5em!important; 
+}
+
+#back {
+    text-align:center!important;
 }

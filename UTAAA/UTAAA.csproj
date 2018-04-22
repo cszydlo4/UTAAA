@@ -161,6 +161,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccessModel.cs" />
+    <Compile Include="Models\DenialModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\HelperModel.cs" />
     <Compile Include="Models\RequestModel.cs" />
@@ -224,6 +225,8 @@
     <Content Include="Views\CurrentRequests\Details.cshtml" />
     <Content Include="Views\PastApprovals\Details.cshtml" />
     <Content Include="Views\CurrentApprovals\Details.cshtml" />
+    <Content Include="Views\CurrentApprovals\Deny.cshtml" />
+    <Content Include="Views\CurrentApprovals\Submitted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

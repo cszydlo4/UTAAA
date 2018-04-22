@@ -51,7 +51,7 @@ namespace UTAAA.Controllers
                                                                 APPROVALLEVELS.AL_DESCRIPTION, ACCESSREQTYPE.REQTYPE_DESC, REQUEST.REQUESTDATE,
                                                                 EMPLOYEES.FIRST_NAME, EMPLOYEES.LAST_NAME, EMPLOYEES.EMAIL, EMPLOYEES.TITLE,
                                                                 EMPLOYEES.PHONE_NUMBER, EMPLOYEESTATUS.STATUS_DESC, DEPARTMENT.DEPT_NAME, EMPLOYEES.SUPERVISOR_NAME,
-                                                                EMPLOYEES.SUPERVISOR_EMAIL
+                                                                EMPLOYEES.SUPERVISOR_EMAIL, REQUESTAPPROVALS.APPROVAL_ROCKETID
                                                             FROM SECURITYCLASS 
                                                             INNER JOIN SUBJECT_AREAS ON SECURITYCLASS.SUBJECTAREA_ID = SUBJECT_AREAS.SUBJECTAREA_ID 
                                                             INNER JOIN SECURITY_ACCESS ON SECURITYCLASS.SECURITYACCESS_ID = SECURITY_ACCESS.SECURITYACCESS_ID 
@@ -68,12 +68,14 @@ namespace UTAAA.Controllers
                                                             WHERE REQUESTDETAILS.REQUESTDETAILS_ID = " + REQUESTDETAILS_ID).ToList();
             }
 
-            if (accessRequest[0].REASON_OF_DENIAL == null)
+            foreach (var item in accessRequest)
             {
-                accessRequest[0].REASON_OF_DENIAL = "N/A";
+                if (item.APPROVAL_ROCKETID == testRocketID)
+                {
+                    return PartialView(item); // Only returns the final approval in the chain
+                }
             }
-
-            return PartialView(accessRequest[0]);
+            return PartialView(); // Will not run
         }
     }
 }

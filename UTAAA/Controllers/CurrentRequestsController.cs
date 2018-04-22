@@ -70,7 +70,7 @@ namespace UTAAA.Controllers
                     return PartialView(item); // Only returns the final approval in the chain
                 }
             }
-            return PartialView(accessRequest); // Will not run
+            return PartialView(); // Will not run
         }
     }
 }

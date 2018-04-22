@@ -143,6 +143,9 @@
     </dl>
 </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
-    <h3>@Html.ActionLink("BACK", "Index", "Site")</h3>
+    <h2>
+        @Html.ActionLink("Approve", "Edit", new { @class = "subBtn" }) |
+        @Html.ActionLink("Deny", "Deny", new { REQUESTDETAILS_ID = Html.DisplayFor(model => model.REQUESTDETAILS_ID) }, null)
+    </h2>
+    <h3 id="back">@Html.ActionLink("BACK", "Index", "Site")</h3>
 </p>

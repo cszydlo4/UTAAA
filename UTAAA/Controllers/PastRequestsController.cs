@@ -64,7 +64,7 @@ namespace UTAAA.Controllers
                     return PartialView(item); // Only returns the final approval in the chain
                 }
             }
-            return PartialView(accessRequest); // Will not run as long as a reason for denial is required for denials and admins have the final approval
+            return PartialView(); // Will not run as long as a reason for denial is required for denials and admins have the final approval
         }
     }
 }
