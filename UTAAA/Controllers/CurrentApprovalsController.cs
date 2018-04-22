@@ -82,33 +82,78 @@ namespace UTAAA.Controllers
         /*-----------------------------Deny View--------------------------------*/
         public ActionResult Deny(int REQUESTDETAILS_ID)
         {
-            DenialModel denial = new DenialModel();
+            ApprovalModel denial = new ApprovalModel();
             denial.REQUESTDETAILS_ID = REQUESTDETAILS_ID;
             
             return PartialView(denial);
         }
 
         [HttpPost]
-        public ActionResult Deny(DenialModel denial)
+        public ActionResult Deny(ApprovalModel denial)
         {
             using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
             {
                 if (ModelState.IsValid)
                 {
-                    string sqlQuery1 = @"UPDATE REQUESTDETAILS SET REQSTATUS_ID = " + denial.REQSTATUS_ID + @" WHERE REQUESTDETAILS_ID = " + denial.REQUESTDETAILS_ID;
-
-                    string sqlQuery2 = @"UPDATE REQUESTAPPROVALS SET ACTIONDATE = SYSDATE, REQSTATUS_ID = " + denial.REQSTATUS_ID + @", REASON_OF_DENIAL = '" + denial.REASON_OF_DENIAL + @"' WHERE REQUESTDETAILS_ID = " + denial.REQUESTDETAILS_ID + @" AND APPROVAL_ROCKETID = '" + testRocketID + "'";
+                    // Mark request as denied
+                    string sqlQuery1 = @"UPDATE REQUESTDETAILS SET REQSTATUS_ID = 3 WHERE REQUESTDETAILS_ID = " + denial.REQUESTDETAILS_ID;
+                    // Mark approval as denied with reason of denial
+                    string sqlQuery2 = @"UPDATE REQUESTAPPROVALS SET ACTIONDATE = SYSDATE, REQSTATUS_ID = 3, REASON_OF_DENIAL = '" + denial.REASON_OF_DENIAL + @"' WHERE REQUESTDETAILS_ID = " + denial.REQUESTDETAILS_ID + @" AND APPROVAL_ROCKETID = '" + testRocketID + "'";
                     
                     dbConn.Execute(sqlQuery1);
                     dbConn.Execute(sqlQuery2);
-
-                    return PartialView("Submitted");
+                    
+                    return PartialView("Denied");
                 } else
                 {
                     return PartialView("Deny");
                 }
             }
             
+        }
+
+        /*-----------------------------Approve View--------------------------------*/
+        public ActionResult Approve(int REQUESTDETAILS_ID)
+        {
+            ApprovalModel approval = new ApprovalModel();
+            approval.REQUESTDETAILS_ID = REQUESTDETAILS_ID;
+
+            return PartialView(approval);
+        }
+
+        [HttpPost]
+        public ActionResult Approve(ApprovalModel approval)
+        {
+            using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
+            {
+                /* Set approval to approved */
+                string sqlQuery1 = @"UPDATE REQUESTAPPROVALS SET ACTIONDATE = SYSDATE, REQSTATUS_ID = 2 WHERE REQUESTDETAILS_ID = " + approval.REQUESTDETAILS_ID + @" AND APPROVAL_ROCKETID = '" + testRocketID + "'";
+                dbConn.Execute(sqlQuery1);
+
+                /* Retrieve Approval Level, Custodian Rocket ID, and Admin Rocket ID for Request*/
+                List<int> AL_ID = dbConn.Query<int>("SELECT AL_ID FROM REQUESTAPPROVALS WHERE REQUESTDETAILS_ID = " + approval.REQUESTDETAILS_ID + @" AND APPROVAL_ROCKETID = '" + testRocketID + "'").ToList();
+                List<string> PRIMARY_CUSTODIAN_ROCKETID = dbConn.Query<string>("SELECT PRIMARY_CUSTODIAN_ROCKETID FROM SECURITYCLASS INNER JOIN REQUESTDETAILS ON SECURITYCLASS.SECURITYCLASS_ID = REQUESTDETAILS.SECURITYCLASS_ID WHERE REQUESTDETAILS.REQUESTDETAILS_ID = " + approval.REQUESTDETAILS_ID).ToList();
+                List<string> ADMIN_ROCKETID = dbConn.Query<string>("SELECT ADMIN_ROCKETID FROM SECURITYCLASS INNER JOIN REQUESTDETAILS ON SECURITYCLASS.SECURITYCLASS_ID = REQUESTDETAILS.SECURITYCLASS_ID WHERE REQUESTDETAILS.REQUESTDETAILS_ID = " + approval.REQUESTDETAILS_ID).ToList();
+
+                string sqlQuery2;
+                if (AL_ID[0] == 2)
+                {   //Elevate request to Custodian
+                    sqlQuery2 = @"INSERT INTO REQUESTAPPROVALS (APPROVAL_ID, REQUESTDETAILS_ID, APPROVAL_ROCKETID, AL_ID, ACTIONDATE) VALUES (APPROVAL_ID.nextval, " + approval.REQUESTDETAILS_ID + @", '" + PRIMARY_CUSTODIAN_ROCKETID[0] + @"', 3, SYSDATE)";
+                    dbConn.Execute(sqlQuery2);
+                } else if (AL_ID[0] == 3)
+                {
+                    //Elevate request to Admin
+                    sqlQuery2 = @"INSERT INTO REQUESTAPPROVALS (APPROVAL_ID, REQUESTDETAILS_ID, APPROVAL_ROCKETID, AL_ID, ACTIONDATE) VALUES (APPROVAL_ID.nextval, " + approval.REQUESTDETAILS_ID + @", '" + ADMIN_ROCKETID[0] + @"', 4, SYSDATE)";
+                    dbConn.Execute(sqlQuery2);
+                } else if (AL_ID[0] == 4)
+                {
+                    //Mark request as approved
+                    sqlQuery2 = @"UPDATE REQUESTDETAILS SET REQSTATUS_ID = 2 WHERE REQUESTDETAILS_ID = " + approval.REQUESTDETAILS_ID;
+                    dbConn.Execute(sqlQuery2);
+                }
+
+                return PartialView("Approved");
+            }
         }
     }
 }

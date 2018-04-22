@@ -13,6 +13,7 @@
     <hr />
 
     <dl class="dl-horizontal">
+
         <dt>
             Employee
         </dt>
@@ -143,9 +144,9 @@
     </dl>
 </div>
 <p>
-    <h2>
-        @Html.ActionLink("Approve", "Edit", new { @class = "subBtn" }) |
+    <h2 id="center">
+        @Html.ActionLink("Approve", "Approve", new { REQUESTDETAILS_ID = Html.DisplayFor(model => model.REQUESTDETAILS_ID) }, null) |
         @Html.ActionLink("Deny", "Deny", new { REQUESTDETAILS_ID = Html.DisplayFor(model => model.REQUESTDETAILS_ID) }, null)
     </h2>
-    <h3 id="back">@Html.ActionLink("BACK", "Index", "Site")</h3>
+    <h3 id="center">@Html.ActionLink("BACK", "Index", "Site")</h3>
 </p>

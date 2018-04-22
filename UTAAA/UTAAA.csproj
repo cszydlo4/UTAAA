@@ -152,7 +152,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CurrentApprovalsController.cs" />
     <Compile Include="Controllers\CurrentRequestsController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\NewRequestsController.cs" />
     <Compile Include="Controllers\PastApprovalsController.cs" />
     <Compile Include="Controllers\PastRequestsController.cs" />
@@ -161,7 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccessModel.cs" />
-    <Compile Include="Models\DenialModel.cs" />
+    <Compile Include="Models\ApprovalModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\HelperModel.cs" />
     <Compile Include="Models\RequestModel.cs" />
@@ -226,12 +225,13 @@
     <Content Include="Views\PastApprovals\Details.cshtml" />
     <Content Include="Views\CurrentApprovals\Details.cshtml" />
     <Content Include="Views\CurrentApprovals\Deny.cshtml" />
-    <Content Include="Views\CurrentApprovals\Submitted.cshtml" />
+    <Content Include="Views\CurrentApprovals\Denied.cshtml" />
+    <Content Include="Views\CurrentApprovals\Approved.cshtml" />
+    <Content Include="Views\CurrentApprovals\Approve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

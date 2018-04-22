@@ -1,0 +1,24 @@
+﻿@model UTAAA.Models.ApprovalModel
+
+@{
+    Layout = "~/Views/Shared/HideTabLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="center">
+        
+
+        <div class="form-group">
+            <br />
+            <h3>Are you sure you want to approve the request?</h3>
+            <br />
+            <input type="submit" value="Confirm" class="btn btn-default" />
+            <br />
+        </div>
+    </div>
+    
+    <h3 id="center">@Html.ActionLink("BACK", "Index", "Site")</h3>
+    
+}
