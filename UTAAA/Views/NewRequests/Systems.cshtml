@@ -1,0 +1,27 @@
+﻿@model IEnumerable<UTAAA.Models.AccessModel>
+
+<h3 id="center">Select system:</h3>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.SYSTEMNAME)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.SYSTEMNAME)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Select", "SubjectAreas", new { SYSTEMNAME = item.SYSTEMNAME, ROCKET_ID = item.ROCKET_ID })
+        </td>
+    </tr>
+}
+
+</table>

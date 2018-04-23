@@ -57,7 +57,10 @@ namespace UTAAA.Models
         [Display(Name = "Request Type")]
         public string REQTYPE_DESC { get; set; }
 
-        /*EMPLOYEES*/
+        /*EMPLOYEE*/
+        [Display(Name = "Rocket ID")]
+        public string ROCKET_ID { get; set; }
+
         [Display(Name = "First Name")]
         public string FIRST_NAME { get; set; }
 

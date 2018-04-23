@@ -11,13 +11,13 @@ namespace UTAAA.Controllers
 {
     public class NewRequestsController : Controller
     {
-        /* GET: Index contains employee form */
+        /*--------------------------Index View (Employeee form)-----------------------------*/
         public ActionResult Index()
         {
             return PartialView();
         }
 
-        /* Save employee object to database */
+        /*-------------------------Index View (Push employee to db)-------------------------*/
         [HttpPost]
         public ActionResult Index(EmployeeModel employee)
         {
@@ -52,17 +52,64 @@ namespace UTAAA.Controllers
                                                                  employee.SUPERVISOR_EMAIL + "')";
 
                         int rowsAffected = dbConn.Execute(sqlQuery);
-                        return PartialView("Access"); // Move to access request form
+                        //return PartialView("Access"); // Move to access request form
                     }
-                    else
+
+                    List<AccessModel> systems = new List<AccessModel>();
+
+                    systems = dbConn.Query<AccessModel>(@"SELECT SYSTEMNAME FROM SYSTEMS").ToList();
+                    foreach (var system in systems)
                     {
-                        return PartialView("EmployeeExists"); // Display that employee is already saved in db, temporary for testing
+                        system.ROCKET_ID = employee.ROCKET_ID;
                     }
+
+                    return PartialView("Systems", systems);
                 } else
                 {
                     return PartialView("Index");
                 }
-                
+            }
+        }
+
+        /*----------------------------------Subject Areas View---------------------------------*/
+        public ActionResult SubjectAreas(string SYSTEMNAME, string ROCKET_ID)
+        {
+            List<AccessModel> subjectAreas = new List<AccessModel>();
+
+            using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
+            {
+                List<int> SYSTEMS_ID = dbConn.Query<int>(@"SELECT SYSTEMS_ID FROM SYSTEMS WHERE SYSTEMNAME = '" + SYSTEMNAME + "'").ToList();
+                subjectAreas = dbConn.Query<AccessModel>(@"SELECT SUBJECTAREANAME FROM SUBJECT_AREAS INNER JOIN SECURITYCLASS ON SUBJECT_AREAS.SUBJECTAREA_ID = SECURITYCLASS.SUBJECTAREA_ID WHERE SYSTEMS_ID = " + SYSTEMS_ID[0] + " ORDER BY SUBJECTAREANAME").ToList();
+                subjectAreas = subjectAreas.GroupBy(x => x.SUBJECTAREANAME).Select(x => x.First()).ToList(); //Remove duplicates
+
+                foreach (var subjectArea in subjectAreas)
+                {
+                    subjectArea.ROCKET_ID = ROCKET_ID;
+                    subjectArea.SYSTEMNAME = SYSTEMNAME;
+                }
+
+                return PartialView("SubjectAreas", subjectAreas);
+            }
+        }
+
+        /*----------------------------------Security Access View---------------------------------*/
+        public ActionResult SecurityAccess(string SUBJECTAREANAME, string ROCKET_ID, string SYSTEMNAME)
+        {
+            List<AccessModel> securityAccess = new List<AccessModel>();
+
+            using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
+            {
+                List<int> SUBJECTAREA_ID = dbConn.Query<int>(@"SELECT SUBJECTAREA_ID FROM SUBJECT_AREAS WHERE SUBJECTAREANAME = '" + SUBJECTAREANAME + "'").ToList();
+                List<int> SYSTEMS_ID = dbConn.Query<int>(@"SELECT SYSTEMS_ID FROM SYSTEMS WHERE SYSTEMNAME = '" + SYSTEMNAME + "'").ToList();
+                securityAccess = dbConn.Query<AccessModel>(@"SELECT SECURITYACCESSDESC FROM SECURITY_ACCESS INNER JOIN SECURITYCLASS ON SECURITY_ACCESS.SECURITYACCESS_ID = SECURITYCLASS.SECURITYACCESS_ID WHERE SUBJECTAREA_ID = " + SUBJECTAREA_ID[0] + "AND SYSTEMS_ID = " + SYSTEMS_ID[0] + " ORDER BY SECURITYACCESSDESC").ToList();
+                securityAccess = securityAccess.GroupBy(x => x.SECURITYACCESSDESC).Select(x => x.First()).ToList(); //Remove duplicates
+
+                foreach (var access in securityAccess)
+                {
+                    access.ROCKET_ID = ROCKET_ID;
+                }
+
+                return PartialView("SecurityAccess", securityAccess);
             }
         }
     }

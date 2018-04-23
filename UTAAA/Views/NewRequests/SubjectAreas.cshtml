@@ -1,0 +1,32 @@
+﻿@model IEnumerable<UTAAA.Models.AccessModel>
+
+@{
+    Layout = "~/Views/Shared/HideTabLayout.cshtml";
+}
+
+<h3 id="center">Select subject area:</h3>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.SUBJECTAREANAME)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SUBJECTAREANAME)
+            </td>
+
+            <td>
+                @Html.ActionLink("Select", "SecurityAccess", new { SUBJECTAREANAME = item.SUBJECTAREANAME, SYSTEMNAME = item.SYSTEMNAME, ROCKET_ID = item.ROCKET_ID })
+            </td>
+        </tr>
+    }
+
+</table>

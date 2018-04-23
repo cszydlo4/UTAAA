@@ -228,6 +228,9 @@
     <Content Include="Views\CurrentApprovals\Denied.cshtml" />
     <Content Include="Views\CurrentApprovals\Approved.cshtml" />
     <Content Include="Views\CurrentApprovals\Approve.cshtml" />
+    <Content Include="Views\NewRequests\Systems.cshtml" />
+    <Content Include="Views\NewRequests\SubjectAreas.cshtml" />
+    <Content Include="Views\NewRequests\SecurityAccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
