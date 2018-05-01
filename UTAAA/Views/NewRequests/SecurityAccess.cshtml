@@ -20,9 +20,10 @@
         <tr>
 
             <td>
-                @Html.DisplayFor(modelItem => item.SECURITYACCESSDESC)
+               @* <input type="checkbox" />*@
+                @Html.DisplayFor(modelItem => item.selected)
             </td>
-
+            <td>@Html.DisplayFor(modelItem => item.SECURITYACCESSDESC)</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

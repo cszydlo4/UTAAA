@@ -31,8 +31,10 @@
     <header>
         <div id="header">
             <div class="container">
-                <div id="ut_logo"><img src="~/Content/images/ut_logo.png" alt="The University of Toledo" id="logo" />
-                <img src="~/Content/images/ut_shield.png" alt="UT" width="40" height="46" id="shield" /> <strong>System Access Requests</strong></div>
+                <div id="ut_logo">
+                    <img src="~/Content/images/ut_logo.png" alt="The University of Toledo" id="logo" />
+                    <img src="~/Content/images/ut_shield.png" alt="UT" width="40" height="46" id="shield" /> <strong>System Access Requests</strong>
+                </div>
                 <!-- end ut_logo -->
 
             </div>
@@ -90,7 +92,7 @@
     <!-- end page_nav_mobile -->
     <!-- End header and page navigation / Begin content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    
+
     <div id="content" class="container">
         <div class="row">
 
@@ -115,34 +117,34 @@
 
             <!-- Tabs -->
             <div id="PastRequests" class="tabcontent">
-                <hr id="tabHr" />
+                <hr class="tabHr" />
                 @Html.Action("Index", "PastRequests")
             </div>
 
             <div id="CurrentRequests" class="tabcontent">
-                <hr id="tabHr" />
+                <hr class="tabHr" />
                 @Html.Action("Index", "CurrentRequests")
             </div>
 
             <div id="NewRequests" class="tabcontent">
-                <hr id="tabHr" />
+                <hr class="tabHr" />
                 @Html.Action("Index", "NewRequests")
             </div>
 
 
             <div id="PastApprovals" class="tabcontent">
-                <hr id="tabHr" />
+                <hr class="tabHr" />
                 @Html.Action("Index", "PastApprovals")
             </div>
 
             <div id="CurrentApprovals" class="tabcontent">
-                <hr id="tabHr" />
+                <hr class="tabHr" />
                 @Html.Action("Index", "CurrentApprovals")
             </div>
 
 
             @Scripts.Render("~/Scripts/tabs.js")
-     
+
             <script>
                 // Get the element with id="defaultOpen" and click on it
                 document.getElementById("DefaultOpen").click();
@@ -152,44 +154,44 @@
         </div>
     </div>
 
-        <!-- End content / Begin footer
+    <!-- End content / Begin footer
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <!-- end content_date -->
+    <!-- end content_date -->
 
-        @*<footer>
-            <div id="footer">
-                <div id="content_date">
-                    <span><a id="de" href="#">Last Updated: 4/6/18</a></span>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div id="footer_logo" class="two columns"><img src="~/Content/images//ut_logo.png" alt="UT Logo" title="UT Logo"></div>
-                        <div id="footer_contact" class="ten columns">
-                            <p>
-                                The University of Toledo <br>
-                                • 2801 W. Bancroft <br>
-                                • Toledo, OH 43606-3390<br class="footer_contact_break">
-                                © The University of Toledo. <br>
-                                • All rights reserved. <br>
-                                • 1.800.586.5336
-                            </p>
-                            <ul id="footer_links">
-                                <li class="footer_links_item"><a class="footer_links_link" href="/campus/terms.html">Terms of Use</a></li>
-                                <li class="footer_links_item"><a class="footer_links_link" href="/offices/marketing/web/accessibility.html">Accessibility</a></li>
-                                <li class="footer_links_item"><a class="footer_links_link" href="mailto:webmaster@utoledo.edu">Feedback</a></li>
-                                <li class="footer_links_item"><a class="footer_links_link" href="/campus/about/address.html">Contact us</a></li>
-                            </ul>
-                        </div>
+    <div id="content_date">
+        <span><a id="de" href="#">Last Updated: 4/6/18</a></span>
+    </div>
+    <footer>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div id="footer_logo" class="two columns"><img src="~/Content/images//ut_logo.png" alt="UT Logo" title="UT Logo"></div>
+                    <div id="footer_contact" class="ten columns">
+                        <p>
+                            The University of Toledo <br>
+                            • 2801 W. Bancroft <br>
+                            • Toledo, OH 43606-3390<br class="footer_contact_break">
+                            © The University of Toledo. <br>
+                            • All rights reserved. <br>
+                            • 1.800.586.5336
+                        </p>
+                        <ul id="footer_links">
+                            <li class="footer_links_item"><a class="footer_links_link" href="/campus/terms.html">Terms of Use</a></li>
+                            <li class="footer_links_item"><a class="footer_links_link" href="/offices/marketing/web/accessibility.html">Accessibility</a></li>
+                            <li class="footer_links_item"><a class="footer_links_link" href="mailto:webmaster@utoledo.edu">Feedback</a></li>
+                            <li class="footer_links_item"><a class="footer_links_link" href="/campus/about/address.html">Contact us</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </footer>*@
+        </div>
+    </footer>
 
-        <!-- end footer -->
+    <!-- end footer -->
 
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

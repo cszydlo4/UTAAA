@@ -23,7 +23,7 @@
     clear: both!important;
 }
 
-#tabHr {
+.tabHr {
     margin: 0;
     padding: 0;
     border-width: 1px;
@@ -49,25 +49,27 @@ h3 {
 }
 
 html {
-    min-height: 100%!important;
-    position: relative!important;
+    /*max-height: 100% !important;
+    overflow: auto!important;*/
+    
 }
 
-body {
-    margin: 0 0 150px!important;
-}
 footer {
-    position: absolute !important;
-    left: 0 !important;
+    /*left: 0 !important;
     bottom: 0 !important;
-    width: 100% !important;
-    height: 150px !important;
+    width: 100% !important;*/
 }
 
 #content {
-    margin-bottom: 5em!important; 
+    /*margin-bottom: 5em!important;*/ 
 }
 
 #center {
     text-align:center!important;
+}
+
+body {
+    /*max-height: 100% !important;
+    overflow: auto !important;*/
+    min-height: 1000px !important;
 }

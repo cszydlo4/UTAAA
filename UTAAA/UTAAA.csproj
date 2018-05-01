@@ -217,8 +217,6 @@
     <Content Include="Views\PastRequests\Index.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\NewRequests\Index.cshtml" />
-    <Content Include="Views\NewRequests\Access.cshtml" />
-    <Content Include="Views\NewRequests\EmployeeExists.cshtml" />
     <Content Include="Views\PastRequests\Details.cshtml" />
     <Content Include="Views\Shared\HideTabLayout.cshtml" />
     <Content Include="Views\CurrentRequests\Details.cshtml" />

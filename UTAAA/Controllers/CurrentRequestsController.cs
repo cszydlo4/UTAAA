@@ -21,7 +21,6 @@ namespace UTAAA.Controllers
         {
             List<RequestModel> requests = new List<RequestModel>();
 
-            //requests.Add(new RequestModel { RequestID = 1, RequestDate = "4/6/2018", RequestStatus = 1, ApprovalLevel = 1 });
             using (OracleConnection dbConn = new OracleConnection(HelperModel.cnnVal("OracleDB")))
             {
                 requests = dbConn.Query<RequestModel>(@"SELECT REQUEST.REQUESTDATE, SECURITYCLASS.SCLASSDESC, ACCESSREQTYPE.REQTYPE_DESC, APPROVALLEVELS.AL_DESCRIPTION, 

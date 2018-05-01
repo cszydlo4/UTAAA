@@ -8,6 +8,10 @@ namespace UTAAA.Models
 {
     public class AccessModel
     {
+
+        public bool selected { get; set; }
+
+
         /*SECURITYCLASS*/
         [Display(Name = "Security Class")]
         public string SCLASSDESC { get; set; }
