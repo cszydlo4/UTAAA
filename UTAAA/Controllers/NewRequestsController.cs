@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UTAAA.Models;
+using ConsoleAppSearchADTest;
+using System.Configuration;
 
 namespace UTAAA.Controllers
 {
@@ -14,6 +16,12 @@ namespace UTAAA.Controllers
         /*--------------------------Index View (Employeee form)-----------------------------*/
         public ActionResult Index()
         {
+            UserActiveDirectoryProperties ad = new UserActiveDirectoryProperties();
+            var dscheel = ad.GetUserActiveDirectoryProperties("dscheel");
+
+            Email em = new Email();
+            em.SendEmail("dante.scheele@rockets.utoledo.edu", "TEST", "Body", ConfigurationManager.AppSettings["emailServer"].ToString());
+
             return PartialView();
         }
 
