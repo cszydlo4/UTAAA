@@ -14,9 +14,12 @@ namespace UTAAA.Controllers
 {
     public class CurrentRequestsController : Controller
     {
+        /*==================================================================*/
+        /*To be replaced with logged in user once authentication is in place*/
         string testRocketID = "R25419782";
+        /*==================================================================*/
 
-        /*-----------------------------Index View--------------------------------*/
+        /*-----------------------------Index View-----------------------------*/
         public ActionResult Index()
         {
             List<RequestModel> requests = new List<RequestModel>();

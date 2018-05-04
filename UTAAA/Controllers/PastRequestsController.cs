@@ -11,7 +11,10 @@ namespace UTAAA.Controllers
 {
     public class PastRequestsController : Controller
     {
+        /*==================================================================*/
+        /*To be replaced with logged in user once authentication is in place*/
         string testRocketID = "R25419782";
+        /*==================================================================*/
 
         /*-----------------------------Index View----------------------------------*/
         public ActionResult Index()

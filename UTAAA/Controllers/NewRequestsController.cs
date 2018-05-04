@@ -16,12 +16,6 @@ namespace UTAAA.Controllers
         /*--------------------------Index View (Employeee form)-----------------------------*/
         public ActionResult Index()
         {
-            UserActiveDirectoryProperties ad = new UserActiveDirectoryProperties();
-            var dscheel = ad.GetUserActiveDirectoryProperties("dscheel");
-
-            Email em = new Email();
-            em.SendEmail("dante.scheele@rockets.utoledo.edu", "TEST", "Body", ConfigurationManager.AppSettings["emailServer"].ToString());
-
             return PartialView();
         }
 
@@ -37,7 +31,7 @@ namespace UTAAA.Controllers
                 {
                     employeeIDs = dbConn.Query<string>(@"SELECT ROCKET_ID FROM EMPLOYEES").ToList();
                     if (!employeeIDs.Contains(employee.ROCKET_ID)) // if entered rocket ID is not already saved in the database, insert record
-                    {
+                    {                                              // Most or all of these will probably be replaced once authentication is in place             
                         string sqlQuery = "INSERT INTO EMPLOYEES (ROCKET_ID, " +
                                                                  "FIRST_NAME, " +
                                                                  "MIDDLE_INITIAL, " +
@@ -60,7 +54,6 @@ namespace UTAAA.Controllers
                                                                  employee.SUPERVISOR_EMAIL + "')";
 
                         int rowsAffected = dbConn.Execute(sqlQuery);
-                        //return PartialView("Access"); // Move to access request form
                     }
 
                     List<AccessModel> systems = new List<AccessModel>();
@@ -120,5 +113,12 @@ namespace UTAAA.Controllers
                 return PartialView("SecurityAccess", securityAccess);
             }
         }
+
+        /*========================New Request Submission Action Result code goes here======================*/
+        /*=========Email Code Will Go Here========*/
+        /*  Notify user and supervisor of request */
+        /*========================================*/
+        /*=================================================================================================*/
+
     }
 }

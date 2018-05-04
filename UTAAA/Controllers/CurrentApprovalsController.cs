@@ -14,7 +14,10 @@ namespace UTAAA.Controllers
 {
     public class CurrentApprovalsController : Controller
     {
+        /*==================================================================*/
+        /*To be replaced with logged in user once authentication is in place*/
         string testRocketID = "R25419782";
+        /*==================================================================*/
 
         /*-----------------------------Index View----------------------------------*/
         public ActionResult Index()
@@ -73,7 +76,7 @@ namespace UTAAA.Controllers
             {
                 if (item.APPROVAL_ROCKETID == testRocketID)
                 {
-                    return PartialView(item); // Only returns the final approval in the chain
+                    return PartialView(item); // Only returns the final approval in the approval chain
                 }
             }
             return PartialView(); // Will not run
@@ -103,6 +106,10 @@ namespace UTAAA.Controllers
                     dbConn.Execute(sqlQuery1);
                     dbConn.Execute(sqlQuery2);
                     
+                    /*=========Email Code Will Go Here========*/
+                    /*  Notify user and supervisor of denial  */
+                    /*========================================*/
+
                     return PartialView("Denied");
                 } else
                 {
@@ -151,6 +158,10 @@ namespace UTAAA.Controllers
                     sqlQuery2 = @"UPDATE REQUESTDETAILS SET REQSTATUS_ID = 2 WHERE REQUESTDETAILS_ID = " + approval.REQUESTDETAILS_ID;
                     dbConn.Execute(sqlQuery2);
                 }
+
+                /*=========Email Code Will Go Here========*/
+                /*      Notify user and next approver     */
+                /*========================================*/
 
                 return PartialView("Approved");
             }
